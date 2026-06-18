@@ -1,0 +1,1775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rising Oak Academy – Learn. Grow. Lead.</title>
+<meta name="description" content="Rising Oak Academy in Bengaluru, Karnataka, offers high-quality, value-based foundational and primary education focusing on knowledge, character, and leadership." />
+<meta property="og:title" content="Rising Oak Academy – Learn. Grow. Lead." />
+<meta property="og:description" content="Nurturing knowledge, character, and leadership in Bengaluru, Karnataka. Admissions are now open for foundational grades." />
+<meta property="og:image" content="assets/logo.png" />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  /* ── CSS RESET & VARIABLE DECLARATIONS ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #071f11;
+    --green-primary: #113E21;
+    --green-mid: #1B5E20;
+    --green-light: #2E7D32;
+    --green-accent: #388E3C;
+    --navy-primary: #0D47A1;
+    --navy-light: #1565C0;
+    --gold-primary: #D4AF37;
+    --gold-light: #E8CC6A;
+    --gold-dark: #A68015;
+    --white: #FFFFFF;
+    --white-cream: #FCFAF6;
+    --gray-bg: #F5F7F6;
+    --gray-text: #5A605B;
+    --dark: #121613;
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-gold-bg: rgba(212, 175, 55, 0.05);
+    --glass-gold-border: rgba(212, 175, 55, 0.15);
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--dark);
+    background: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Custom selection styling */
+  ::selection {
+    background: var(--gold-primary);
+    color: var(--green-deep);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--green-deep);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--gold-primary);
+    border: 3px solid var(--green-deep);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+  }
+
+  /* ── NAVIGATION BAR ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(7, 31, 17, 0.93);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 76px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  nav.scrolled {
+    height: 64px;
+    background: rgba(7, 31, 17, 0.98);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .nav-logo-img {
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-brand:hover .nav-logo-img {
+    transform: rotate(5deg) scale(1.05);
+  }
+
+  .nav-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.02em;
+    line-height: 1.25;
+  }
+
+  .nav-name span {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.82);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 6px 0;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold-primary);
+    transition: width 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: var(--gold-light);
+  }
+
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
+  .nav-cta {
+    background: var(--gold-primary);
+    color: var(--green-deep) !important;
+    padding: 10px 20px !important;
+    border-radius: 4px;
+    font-weight: 700 !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.15);
+  }
+
+  .nav-cta:hover {
+    background: var(--gold-light) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(212, 175, 55, 0.3);
+  }
+  
+  .nav-cta::after {
+    display: none !important;
+  }
+
+  /* Hamburger Toggle Button */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    padding: 0;
+  }
+
+  .hamburger span {
+    width: 100%;
+    height: 2px;
+    background-color: var(--white);
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+    background-color: var(--gold-primary);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+    background-color: var(--gold-primary);
+  }
+
+  /* Mobile Drawer Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0; right: -100%;
+    width: min(320px, 80vw);
+    height: 100vh;
+    background: rgba(7, 31, 17, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+    transition: right 0.4s cubic-bezier(0.77, 0.2, 0.05, 1);
+    border-left: 1px solid rgba(212, 175, 55, 0.2);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.25);
+  }
+
+  .mobile-menu.active {
+    right: 0;
+  }
+
+  .mobile-menu a {
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--gold-primary);
+  }
+
+  .mobile-menu .mobile-cta {
+    background: var(--gold-primary);
+    color: var(--green-deep);
+    padding: 14px 28px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+
+  /* ── HERO SECTION ── */
+  #hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--green-deep) 0%, #11331c 50%, #061830 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 5% 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background canvas for golden particles */
+  #hero-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  /* Large watermark logo */
+  .hero-logo-watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.04;
+    width: min(520px, 85vw);
+    pointer-events: none;
+    z-index: 0;
+    animation: slowPulse 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes slowPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 0.03; }
+    100% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.05; }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroReveal 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards 0.2s;
+  }
+
+  @keyframes heroReveal {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--gold-primary);
+    margin-bottom: 24px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .hero-eyebrow::before, .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-primary));
+  }
+  .hero-eyebrow::after {
+    background: linear-gradient(to left, transparent, var(--gold-primary));
+  }
+
+  .hero-title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.8rem, 6.5vw, 4.8rem);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+    text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+
+  .hero-title em {
+    font-style: italic;
+    font-family: var(--font-heading);
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+
+  .hero-tagline {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 16px;
+    letter-spacing: 0.06em;
+  }
+
+  .hero-motto {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(212, 175, 55, 0.9);
+    margin-bottom: 48px;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold-primary);
+    color: var(--green-deep);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid var(--gold-primary);
+  }
+
+  .hero-cta:hover {
+    background: transparent;
+    color: var(--gold-primary);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.3);
+  }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0.55;
+    animation: bounce 2.4s ease-in-out infinite;
+    z-index: 2;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+  }
+
+  .hero-scroll:hover {
+    opacity: 0.9;
+  }
+
+  .hero-scroll span {
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--white);
+  }
+
+  .hero-scroll-line {
+    width: 1px;
+    height: 44px;
+    background: linear-gradient(to bottom, var(--white), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ── SECTIONS COMMON STYLES ── */
+  section {
+    padding: 110px 8%;
+    position: relative;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--green-mid);
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-heading {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--dark);
+    margin-bottom: 20px;
+  }
+
+  .gold-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--gold-primary);
+    border-radius: 2px;
+    margin-bottom: 40px;
+  }
+
+  /* ── ABOUT / MISSION & VISION ── */
+  #about {
+    background: var(--white-cream);
+  }
+
+  .mv-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .mv-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    padding: 56px 48px;
+    border-top: 4px solid var(--green-primary);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.02);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .mv-card.navy {
+    border-top-color: var(--navy-primary);
+  }
+
+  .mv-card:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(212, 175, 55, 0.25);
+    box-shadow: 0 20px 50px rgba(7, 31, 17, 0.06);
+  }
+
+  .mv-card-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--green-primary);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .mv-card.navy .mv-card-label {
+    color: var(--navy-primary);
+  }
+
+  .mv-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--dark);
+  }
+
+  .mv-card p {
+    font-size: 0.98rem;
+    line-height: 1.8;
+    color: var(--gray-text);
+  }
+
+  .mv-icon {
+    position: absolute;
+    top: 40px; right: 40px;
+    width: 80px; height: 80px;
+    opacity: 0.05;
+    transition: all 0.4s ease;
+  }
+
+  .mv-card:hover .mv-icon {
+    opacity: 0.12;
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  /* ── VALUES SECTION ── */
+  #values {
+    background: linear-gradient(140deg, #092613 0%, var(--green-primary) 100%);
+    position: relative;
+  }
+
+  #values .section-label { color: var(--gold-light); }
+  #values .section-heading { color: var(--white); }
+  #values .gold-rule { background: rgba(255, 255, 255, 0.25); }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1140px;
+    margin: 0 auto;
+  }
+
+  .value-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px 24px;
+    border-radius: 6px;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .value-item::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(180deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .value-item:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(212, 175, 55, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .value-item:hover::before {
+    opacity: 1;
+  }
+
+  .value-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    color: var(--gold-primary);
+    margin-bottom: 12px;
+    display: block;
+    font-family: var(--font-body);
+  }
+
+  .value-name {
+    font-family: var(--font-heading);
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  /* ── ROADMAP SECTION ── */
+  #roadmap {
+    background: var(--white);
+  }
+
+  .roadmap-intro {
+    max-width: 640px;
+    margin-bottom: 64px;
+  }
+
+  .roadmap-intro p {
+    font-size: 1.02rem;
+    line-height: 1.8;
+    color: var(--gray-text);
+  }
+
+  .phases-container {
+    position: relative;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 40px 0;
+  }
+
+  /* Connecting track (Desktop) */
+  .timeline-track {
+    position: absolute;
+    top: 68px; /* middle of dot */
+    left: 8%;
+    right: 8%;
+    height: 4px;
+    background: linear-gradient(to right, var(--green-primary), var(--green-light), var(--navy-primary), var(--navy-light));
+    z-index: 0;
+    border-radius: 2px;
+  }
+
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 24px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .phase {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .phase-dot {
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--white);
+    background: var(--green-primary);
+    border: 4px solid var(--white);
+    box-shadow: 0 0 0 2px var(--green-primary), 0 8px 24px rgba(7, 31, 17, 0.15);
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .phase:hover .phase-dot {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 4px var(--gold-primary), 0 12px 28px rgba(7, 31, 17, 0.25);
+  }
+
+  .phase:nth-child(2) .phase-dot { background: var(--green-mid); box-shadow: 0 0 0 2px var(--green-mid), 0 8px 24px rgba(7, 31, 17, 0.15); }
+  .phase:nth-child(3) .phase-dot { background: var(--green-light); box-shadow: 0 0 0 2px var(--green-light), 0 8px 24px rgba(7, 31, 17, 0.15); }
+  .phase:nth-child(4) .phase-dot { background: var(--navy-primary); box-shadow: 0 0 0 2px var(--navy-primary), 0 8px 24px rgba(13, 71, 161, 0.15); }
+  .phase:nth-child(5) .phase-dot { background: var(--navy-light); box-shadow: 0 0 0 2px var(--navy-light), 0 8px 24px rgba(21, 101, 192, 0.15); }
+
+  .phase-badge {
+    display: inline-block;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    background: #E8F5E9;
+    color: var(--green-primary);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+  }
+
+  .phase:first-child .phase-badge {
+    background: var(--green-primary);
+    color: var(--white);
+  }
+
+  .phase h4 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--dark);
+  }
+
+  .phase p {
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--gray-text);
+  }
+
+  /* ── CONTACT & INQUIRY SECTION ── */
+  #contact {
+    background: linear-gradient(135deg, #07150c 0%, #0c2617 100%);
+    color: var(--white);
+    padding: 100px 8%;
+  }
+
+  .contact-inner {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .contact-left .section-label { color: var(--gold-light); }
+  .contact-left .section-heading { color: var(--white); }
+  .contact-left .gold-rule { background: rgba(255, 255, 255, 0.25); }
+
+  .contact-tagline {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+  }
+
+  .contact-trust-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.45);
+    line-height: 1.7;
+    margin-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 24px;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 36px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .contact-icon {
+    width: 46px; height: 46px;
+    background: rgba(212, 175, 55, 0.08);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.3s ease;
+  }
+
+  .contact-item:hover .contact-icon {
+    background: var(--gold-primary);
+    border-color: var(--gold-primary);
+  }
+  
+  .contact-item:hover .contact-icon svg {
+    stroke: var(--green-deep);
+  }
+
+  .contact-icon svg {
+    width: 20px; height: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .contact-item-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-bottom: 4px;
+    display: block;
+  }
+
+  .contact-item-value {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .contact-item-value a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  .contact-item-value a:hover { color: var(--gold-light); }
+
+  /* Inquiry Form styling */
+  .inquiry-form-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 44px 40px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  .inquiry-form-title {
+    font-family: var(--font-heading);
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  
+  .inquiry-form-subtitle {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 32px;
+  }
+
+  .form-group {
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 8px;
+  }
+
+  .form-control {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 4px;
+    padding: 12px 16px;
+    font-size: 0.9rem;
+    color: var(--white);
+    font-family: var(--font-body);
+    transition: all 0.3s ease;
+  }
+
+  .form-control:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
+  }
+
+  select.form-control {
+    color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+  }
+  select.form-control option {
+    background: #0d2618;
+    color: var(--white);
+  }
+
+  textarea.form-control {
+    resize: none;
+    height: 100px;
+  }
+
+  /* Form validation styles */
+  .form-control.error {
+    border-color: #EF5350 !important;
+    box-shadow: 0 0 10px rgba(239, 83, 80, 0.2) !important;
+  }
+
+  .error-message {
+    font-size: 0.7rem;
+    color: #EF5350;
+    margin-top: 4px;
+    display: none;
+  }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--gold-primary);
+    color: var(--green-deep);
+    border: none;
+    border-radius: 4px;
+    padding: 14px 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .submit-btn:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+  }
+
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+
+  /* ── SUCCESS MODAL OVERLAY ── */
+  .modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(4, 15, 8, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal-box {
+    background: rgba(7, 31, 17, 0.95);
+    border: 1px solid var(--gold-primary);
+    border-radius: 12px;
+    padding: 48px;
+    max-width: 460px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  .modal-overlay.active .modal-box {
+    transform: scale(1);
+  }
+
+  .modal-icon-circle {
+    width: 64px; height: 64px;
+    background: rgba(212, 175, 55, 0.12);
+    border: 2px solid var(--gold-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+  }
+
+  .modal-icon-circle svg {
+    width: 32px; height: 32px;
+    stroke: var(--gold-primary);
+  }
+
+  .modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+
+  .modal-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .modal-close-btn {
+    background: var(--gold-primary);
+    color: var(--green-deep);
+    border: none;
+    border-radius: 4px;
+    padding: 12px 32px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .modal-close-btn:hover {
+    background: var(--gold-light);
+  }
+
+  /* ── FOOTER SECTION ── */
+  footer {
+    background: #050d06;
+    padding: 44px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .footer-logo {
+    height: 36px;
+    width: 36px;
+    object-fit: contain;
+    opacity: 0.9;
+  }
+
+  .footer-left-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-left-title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--white);
+  }
+
+  .footer-copyright {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.02em;
+  }
+
+  .footer-motto {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(212, 175, 55, 0.6);
+  }
+
+  /* ── RESPONSIVE RESPONSIVENESS ── */
+  @media (max-width: 1024px) {
+    .values-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  @media (max-width: 900px) {
+    section { padding: 90px 6%; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .mv-grid { grid-template-columns: 1fr; gap: 32px; }
+    .values-grid { grid-template-columns: repeat(2, 1fr); }
+    .contact-inner { grid-template-columns: 1fr; gap: 56px; }
+    
+    /* Roadmap layout to Vertical Timeline */
+    .timeline-track {
+      left: 38px;
+      top: 10px;
+      bottom: 10px;
+      width: 4px;
+      height: auto;
+      background: linear-gradient(to bottom, var(--green-primary), var(--navy-primary));
+    }
+    
+    .phases {
+      grid-template-columns: 1fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    .phase {
+      flex-direction: row;
+      text-align: left;
+      align-items: flex-start;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .phase-dot {
+      margin-bottom: 0;
+      width: 44px; height: 44px;
+      font-size: 1rem;
+      border-width: 3px;
+    }
+    
+    .phase-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .inquiry-form-card {
+      padding: 32px 24px;
+    }
+  }
+
+  @media (max-width: 540px) {
+    section { padding: 80px 5%; }
+    .values-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-brand { flex-direction: column; text-align: center; justify-content: center; }
+    .modal-box { padding: 32px 24px; }
+  }
+
+  /* ── SCROLL ANIMATION CLASS (IntersectionObserver) ── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: opacity, transform;
+  }
+  
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION BAR -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <img src="assets/logo.png" alt="Rising Oak Academy Logo" class="nav-logo-img" />
+    <div class="nav-name">
+      Rising Oak Academy
+      <span>Learn · Grow · Lead</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#values">Values</a></li>
+    <li><a href="#roadmap">Future</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Inquire Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger-btn" aria-label="Toggle Navigation Menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE DRAWER MENU -->
+<ul class="mobile-menu" id="mobile-menu-drawer">
+  <li><a href="#about" class="mobile-link">About</a></li>
+  <li><a href="#values" class="mobile-link">Values</a></li>
+  <li><a href="#roadmap" class="mobile-link">Future</a></li>
+  <li><a href="#contact" class="mobile-link">Contact</a></li>
+  <li><a href="#contact" class="mobile-link mobile-cta">Inquire Now</a></li>
+</ul>
+
+<main id="main-content">
+
+<!-- HERO SECTION -->
+<section id="hero">
+  <!-- Interactive Background Canvas for floating golden particles -->
+  <canvas id="hero-canvas"></canvas>
+  
+  <!-- Subtle Large Watermark Logo behind content -->
+  <img src="assets/logo.png" alt="Watermark" class="hero-logo-watermark" />
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Bengaluru, Karnataka</div>
+    <h1 class="hero-title">Rising Oak<br /><em>Academy</em></h1>
+    <p class="hero-tagline">Learn. Grow. Lead.</p>
+    <p class="hero-motto">Knowledge &nbsp;·&nbsp; Character &nbsp;·&nbsp; Excellence</p>
+    <a href="#about" class="hero-cta">Discover Our School</a>
+  </div>
+
+  <a href="#about" class="hero-scroll" aria-label="Scroll down to About Section">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </a>
+</section>
+
+<!-- ABOUT / MISSION & VISION SECTION -->
+<section id="about">
+  <div style="max-width: 1140px; margin: 0 auto; margin-bottom: 56px;" class="fade-up">
+    <span class="section-label">Who We Are</span>
+    <h2 class="section-heading">Nurturing Tomorrow's Leaders</h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="mv-grid">
+    <!-- Mission Card -->
+    <div class="mv-card fade-up">
+      <!-- Modern tree icon SVG -->
+      <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="var(--green-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2L2 22h20L12 2z"/>
+        <path d="M12 2v20"/>
+        <path d="M8 12h8"/>
+        <path d="M9 16h6"/>
+      </svg>
+      <span class="mv-card-label">Our Mission</span>
+      <h3>Why We Exist</h3>
+      <p>To provide affordable, value-based education that develops knowledge, character, confidence, and leadership in every child — nurturing the whole person, not just the student.</p>
+    </div>
+    
+    <!-- Vision Card -->
+    <div class="mv-card navy fade-up" style="transition-delay: 0.15s">
+      <!-- Modern star icon SVG -->
+      <svg class="mv-icon" viewBox="0 0 24 24" fill="none" stroke="var(--navy-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+      </svg>
+      <span class="mv-card-label">Our Vision</span>
+      <h3>Where We're Going</h3>
+      <p>To become a trusted institution that nurtures young minds into responsible, capable, and compassionate future leaders — from foundational learning all the way through to higher secondary education.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES SECTION -->
+<section id="values">
+  <div style="max-width: 1140px; margin: 0 auto;">
+    <span class="section-label">What We Stand For</span>
+    <h2 class="section-heading">Our Core Values</h2>
+    <div class="gold-rule"></div>
+    
+    <div class="values-grid">
+      <div class="value-item fade-up">
+        <span class="value-num">01</span>
+        <span class="value-name">Knowledge</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.08s">
+        <span class="value-num">02</span>
+        <span class="value-name">Character</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.16s">
+        <span class="value-num">03</span>
+        <span class="value-name">Excellence</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.24s">
+        <span class="value-num">04</span>
+        <span class="value-name">Integrity</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.32s">
+        <span class="value-num">05</span>
+        <span class="value-name">Responsibility</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.40s">
+        <span class="value-num">06</span>
+        <span class="value-name">Respect</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.48s">
+        <span class="value-num">07</span>
+        <span class="value-name">Leadership</span>
+      </div>
+      <div class="value-item fade-up" style="transition-delay: 0.56s">
+        <span class="value-num">08</span>
+        <span class="value-name">Lifelong Learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP SECTION -->
+<section id="roadmap">
+  <div class="roadmap-intro fade-up">
+    <span class="section-label">Our Journey</span>
+    <h2 class="section-heading">Building a Complete<br />Educational Ecosystem</h2>
+    <div class="gold-rule"></div>
+    <p>Rising Oak Academy is growing steadily from a strong foundational school into a complete K–12 institution. Every phase is built on the same unwavering commitment to quality and character.</p>
+  </div>
+  
+  <div class="phases-container">
+    <div class="timeline-track"></div>
+    <div class="phases">
+      <div class="phase fade-up">
+        <div class="phase-dot">I</div>
+        <div class="phase-text">
+          <span class="phase-badge">Now Open</span>
+          <h4>Foundational School</h4>
+          <p>Grades 1 & 2 — literacy, numeracy, and character development</p>
+        </div>
+      </div>
+      <div class="phase fade-up" style="transition-delay: 0.12s">
+        <div class="phase-dot">II</div>
+        <div class="phase-text">
+          <span class="phase-badge">Upcoming</span>
+          <h4>Primary School</h4>
+          <p>Grades 1–5 — expanding the core curriculum</p>
+        </div>
+      </div>
+      <div class="phase fade-up" style="transition-delay: 0.24s">
+        <div class="phase-dot">III</div>
+        <div class="phase-text">
+          <span class="phase-badge">Planned</span>
+          <h4>High School</h4>
+          <p>Grades 6–10 — secondary education and leadership</p>
+        </div>
+      </div>
+      <div class="phase fade-up" style="transition-delay: 0.36s">
+        <div class="phase-dot">IV</div>
+        <div class="phase-text">
+          <span class="phase-badge">Future</span>
+          <h4>PU College</h4>
+          <p>Grades 11–12 — pre-university programs</p>
+        </div>
+      </div>
+      <div class="phase fade-up" style="transition-delay: 0.48s">
+        <div class="phase-dot">V</div>
+        <div class="phase-text">
+          <span class="phase-badge">Vision</span>
+          <h4>International School</h4>
+          <p>Global curriculum and international learning programs</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & ADMISSION INQUIRY SECTION -->
+<section id="contact">
+  <div class="contact-inner">
+    <!-- Contact Details (Left side) -->
+    <div class="contact-left fade-up">
+      <span class="section-label">Get in Touch</span>
+      <h2 class="section-heading">We'd Love to<br />Hear from You</h2>
+      <div class="gold-rule"></div>
+      <p class="contact-tagline">"Knowledge · Character · Excellence"</p>
+      
+      <div class="contact-details">
+        <!-- Phone -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 012 1.22 2 2 0 014 0h3a2 2 0 012 1.72c.127.96.36 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.34 1.85.573 2.81.7A2 2 0 0122 14v2.92z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-item-label">Phone</span>
+            <div class="contact-item-value"><a href="tel:9742994750">97429 94750</a></div>
+          </div>
+        </div>
+        
+        <!-- Email -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+              <polyline points="22,6 12,13 2,6"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-item-label">Email</span>
+            <div class="contact-item-value"><a href="mailto:risingoakacademy@gmail.com">risingoakacademy@gmail.com</a></div>
+          </div>
+        </div>
+        
+        <!-- Website -->
+        <div class="contact-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="2" y1="12" x2="22" y2="12"/>
+              <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+            </svg>
+          </div>
+          <div>
+            <span class="contact-item-label">Website</span>
+            <div class="contact-item-value"><a href="https://risingoakacademy.in" target="_blank">risingoakacademy.in</a></div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="contact-trust-desc">
+        Managed by Rising Oak Educational Trust, Bengaluru. Registered office representing value education and leadership.
+      </p>
+    </div>
+
+    <!-- Inquiry Form (Right side) -->
+    <div class="inquiry-form-card fade-up" style="transition-delay: 0.15s">
+      <h3 class="inquiry-form-title">Inquire About Admissions</h3>
+      <p class="inquiry-form-subtitle">Register your interest and our admissions coordinator will reach out to you.</p>
+      
+      <form id="admission-inquiry-form" action="https://formspree.io/f/mbdevkbn" method="POST" novalidate>
+        <div class="form-group">
+          <label class="form-label" for="parent-name">Parent / Guardian Name</label>
+          <input type="text" id="parent-name" name="parent-name" class="form-control" placeholder="Enter your full name" required />
+          <div class="error-message" id="error-name">Please enter your name.</div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="parent-email">Email Address</label>
+            <input type="email" id="parent-email" name="parent-email" class="form-control" placeholder="name@example.com" required />
+            <div class="error-message" id="error-email">Please enter a valid email address.</div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="parent-phone">Phone Number</label>
+            <input type="tel" id="parent-phone" name="parent-phone" class="form-control" placeholder="10-digit number" required />
+            <div class="error-message" id="error-phone">Please enter a 10-digit phone number.</div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="student-grade">Grade of Interest</label>
+          <select id="student-grade" name="student-grade" class="form-control" required>
+            <option value="" disabled selected>Select Grade</option>
+            <option value="grade-1">Grade 1 (Foundational)</option>
+            <option value="grade-2">Grade 2 (Foundational)</option>
+            <option value="primary-upcoming">Upcoming Primary (Grades 3-5)</option>
+            <option value="other">Other / General Inquiry</option>
+          </select>
+          <div class="error-message" id="error-grade">Please select a grade.</div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="message">Message / Queries</label>
+          <textarea id="message" name="message" class="form-control" placeholder="Share any queries you have about the academy..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Send Inquiry
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="22" y1="2" x2="11" y2="13"/>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ADMISSIONS SUCCESS MODAL -->
+<div class="modal-overlay" id="success-modal-overlay">
+  <div class="modal-box">
+    <div class="modal-icon-circle">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="20 6 9 17 4 12"/>
+      </svg>
+    </div>
+    <h3 class="modal-title">Inquiry Received</h3>
+    <p class="modal-desc">Thank you for contacting Rising Oak Academy. Our admissions representative will contact you via email or phone within 24-48 business hours.</p>
+    <button class="modal-close-btn" id="modal-close-btn">Close</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <img src="assets/logo.png" alt="Rising Oak Academy logo" class="footer-logo" />
+    <div class="footer-left-info">
+      <div class="footer-left-title">Rising Oak Academy</div>
+      <div class="footer-copyright">© 2025 Rising Oak Academy. Managed by Rising Oak Educational Trust.</div>
+    </div>
+  </div>
+  <div class="footer-motto">Learn &nbsp;·&nbsp; Grow &nbsp;·&nbsp; Lead</div>
+</footer>
+
+<!-- SCRIPTS & INTERACTION LOGIC -->
+<script>
+  // 1. Scroll Effect - Navbar shrink and shade
+  window.addEventListener('scroll', () => {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 40) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // 2. Mobile Drawer Menu Logic
+  const hamburgerBtn = document.getElementById('hamburger-btn');
+  const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+  const mobileLinks = document.querySelectorAll('.mobile-link');
+
+  const toggleMenu = () => {
+    hamburgerBtn.classList.toggle('active');
+    mobileMenuDrawer.classList.toggle('active');
+    document.body.style.overflow = mobileMenuDrawer.classList.contains('active') ? 'hidden' : 'auto';
+  };
+
+  hamburgerBtn.addEventListener('click', toggleMenu);
+
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      hamburgerBtn.classList.remove('active');
+      mobileMenuDrawer.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+  });
+
+  // 3. Scroll-triggered fade-in animation using IntersectionObserver
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => fadeObserver.observe(el));
+
+  // 4. Floating Gold Particles Canvas Effect on Hero
+  const canvas = document.getElementById('hero-canvas');
+  const ctx = canvas.getContext('2d');
+  let particlesArray = [];
+  const numberOfParticles = window.innerWidth < 768 ? 35 : 75;
+
+  const resizeCanvas = () => {
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
+  };
+  resizeCanvas();
+  window.addEventListener('resize', resizeCanvas);
+
+  class Particle {
+    constructor() {
+      this.x = Math.random() * canvas.width;
+      this.y = Math.random() * canvas.height + canvas.height;
+      this.size = Math.random() * 2 + 1;
+      this.speedX = Math.random() * 0.4 - 0.2;
+      this.speedY = -(Math.random() * 0.6 + 0.3);
+      this.alpha = Math.random() * 0.5 + 0.3;
+    }
+
+    update() {
+      this.x += this.speedX;
+      this.y += this.speedY;
+      
+      // Reset particle if it leaves screen boundaries
+      if (this.y < 0) {
+        this.y = canvas.height + Math.random() * 20;
+        this.x = Math.random() * canvas.width;
+        this.speedY = -(Math.random() * 0.6 + 0.3);
+      }
+      if (this.x < 0 || this.x > canvas.width) {
+        this.x = Math.random() * canvas.width;
+      }
+    }
+
+    draw() {
+      ctx.save();
+      ctx.globalAlpha = this.alpha;
+      ctx.fillStyle = '#E8CC6A';
+      ctx.shadowBlur = 6;
+      ctx.shadowColor = '#D4AF37';
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  const initParticles = () => {
+    particlesArray = [];
+    for (let i = 0; i < numberOfParticles; i++) {
+      particlesArray.push(new Particle());
+    }
+  };
+  initParticles();
+
+  const animateParticles = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+      particlesArray[i].update();
+      particlesArray[i].draw();
+    }
+    requestAnimationFrame(animateParticles);
+  };
+  animateParticles();
+
+  // 5. Inquiry Form Submission & Validation with Modal
+  const inquiryForm = document.getElementById('admission-inquiry-form');
+  const parentName = document.getElementById('parent-name');
+  const parentEmail = document.getElementById('parent-email');
+  const parentPhone = document.getElementById('parent-phone');
+  const studentGrade = document.getElementById('student-grade');
+
+  const errorName = document.getElementById('error-name');
+  const errorEmail = document.getElementById('error-email');
+  const errorPhone = document.getElementById('error-phone');
+  const errorGrade = document.getElementById('error-grade');
+
+  const successModal = document.getElementById('success-modal-overlay');
+  const modalCloseBtn = document.getElementById('modal-close-btn');
+
+  // Input Validation Rules
+  const validateForm = () => {
+    let isValid = true;
+
+    // Validate Name
+    if (!parentName.value.trim()) {
+      parentName.classList.add('error');
+      errorName.style.display = 'block';
+      isValid = false;
+    } else {
+      parentName.classList.remove('error');
+      errorName.style.display = 'none';
+    }
+
+    // Validate Email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(parentEmail.value.trim())) {
+      parentEmail.classList.add('error');
+      errorEmail.style.display = 'block';
+      isValid = false;
+    } else {
+      parentEmail.classList.remove('error');
+      errorEmail.style.display = 'none';
+    }
+
+    // Validate Phone (10-digits)
+    const phoneRegex = /^[0-9]{10}$/;
+    const cleanedPhone = parentPhone.value.replace(/\s+/g, '').replace(/[-()]/g, '');
+    if (!phoneRegex.test(cleanedPhone)) {
+      parentPhone.classList.add('error');
+      errorPhone.style.display = 'block';
+      isValid = false;
+    } else {
+      parentPhone.classList.remove('error');
+      errorPhone.style.display = 'none';
+    }
+
+    // Validate Grade Selection
+    if (!studentGrade.value) {
+      studentGrade.classList.add('error');
+      errorGrade.style.display = 'block';
+      isValid = false;
+    } else {
+      studentGrade.classList.remove('error');
+      errorGrade.style.display = 'none';
+    }
+
+    return isValid;
+  };
+
+  // Real-time input listener cleanups
+  [parentName, parentEmail, parentPhone, studentGrade].forEach(input => {
+    input.addEventListener('input', () => {
+      if (input.classList.contains('error')) {
+        input.classList.remove('error');
+        const errDiv = input.parentElement.querySelector('.error-message');
+        if (errDiv) errDiv.style.display = 'none';
+      }
+    });
+  });
+
+  // Form submit event handler with Formspree Ajax integration
+  inquiryForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      const data = new FormData(inquiryForm);
+      const submitBtn = inquiryForm.querySelector('.submit-btn');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Disable button and show loading state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Sending...';
+
+      fetch('https://formspree.io/f/mbdevkbn', {
+        method: 'POST',
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+        if (response.ok) {
+          // Show success modal overlay
+          successModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          inquiryForm.reset();
+        } else {
+          response.json().then(resData => {
+            if (resData && resData.errors) {
+              alert(resData.errors.map(error => error.message).join(", "));
+            } else {
+              alert("Oops! There was a problem submitting your form. Please try again.");
+            }
+          });
+        }
+      }).catch(error => {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnText;
+        alert("Oops! There was a problem submitting your form. Please try again.");
+      });
+    }
+  });
+
+  // Modal dismiss click handlers
+  modalCloseBtn.addEventListener('click', () => {
+    successModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+
+  successModal.addEventListener('click', (e) => {
+    if (e.target === successModal) {
+      successModal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+  });
+</script>
+
+</body>
+</html>
