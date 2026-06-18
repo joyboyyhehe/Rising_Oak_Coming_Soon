@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 - Page Not Found | Rising Oak Academy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #071f11;
+    --green-primary: #113E21;
+    --gold-primary: #D4AF37;
+    --gold-light: #E8CC6A;
+    --white: #FFFFFF;
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: linear-gradient(135deg, var(--green-deep) 0%, #11331c 50%, #061830 100%);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .watermark {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.03;
+    width: min(450px, 80vw);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    padding: 60px 40px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+    position: relative;
+  }
+
+  .logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+    margin-bottom: 24px;
+    filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.25));
+  }
+
+  h1 {
+    font-family: var(--font-heading);
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    color: var(--gold-primary);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 36px;
+  }
+
+  .home-btn {
+    display: inline-block;
+    background: var(--gold-primary);
+    color: var(--green-deep);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    border: 1px solid var(--gold-primary);
+  }
+
+  .home-btn:hover {
+    background: transparent;
+    color: var(--gold-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+  }
+</style>
+</head>
+<body>
+
+<img src="assets/logo.png" alt="" class="watermark" />
+
+<div class="card">
+  <img src="assets/logo.png" alt="Rising Oak Academy Logo" class="logo" />
+  <h1>404</h1>
+  <p>The page you are looking for does not exist or has been relocated to another address.</p>
+  <a href="/" class="home-btn">Return to Website</a>
+</div>
+
+</body>
+</html>
