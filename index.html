@@ -1525,6 +1525,37 @@
 
 <!-- SCRIPTS & INTERACTION LOGIC -->
 <script>
+  // 0. Load Environment Variables Dynamically
+  let formspreeEndpoint = 'https://formspree.io/f/mbdevkbn'; // Default/Fallback
+  
+  async function loadEnv() {
+    try {
+      const response = await fetch('.env');
+      if (response.ok) {
+        const text = await response.text();
+        const lines = text.split('\n');
+        for (let line of lines) {
+          const parts = line.split('=');
+          if (parts.length >= 2) {
+            const key = parts[0].trim();
+            const value = parts.slice(1).join('=').trim();
+            if (key === 'FORMSPREE_ENDPOINT' && value) {
+              formspreeEndpoint = value;
+              const inquiryFormEl = document.getElementById('admission-inquiry-form');
+              if (inquiryFormEl) {
+                inquiryFormEl.setAttribute('action', formspreeEndpoint);
+              }
+              break;
+            }
+          }
+        }
+      }
+    } catch (e) {
+      console.warn('Could not load .env file, using default fallback endpoint.', e);
+    }
+  }
+  loadEnv();
+
   // 1. Scroll Effect - Navbar shrink and shade
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
@@ -1726,7 +1757,7 @@
       submitBtn.disabled = true;
       submitBtn.innerHTML = 'Sending...';
 
-      fetch('https://formspree.io/f/mbdevkbn', {
+      fetch(formspreeEndpoint, {
         method: 'POST',
         body: data,
         headers: {

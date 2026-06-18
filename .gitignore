@@ -6,6 +6,9 @@ Desktop.ini
 # Source/Raw heavy assets
 Logo/
 
+# Environment variables
+.env
+
 # IDE configs
 .idea/
 .vscode/
